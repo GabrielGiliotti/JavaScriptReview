@@ -21,3 +21,8 @@ console.log(nome + myNumber);
 // Infinity - divisao por zero
 
 console.log(myNumber/0);
+
+// armazenando o valor de uma operação em uma variavel
+const soma = 10 + 10;
+const multiplicacao = 10 * 10;
+const operacao = (soma + multiplicacao) + 10;

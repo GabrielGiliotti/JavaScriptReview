@@ -47,3 +47,25 @@ console.log(cidade === input); // false
 console.log(cidade === inputMinusculo); // true
 
 console.log(cidade.length);
+
+// Camel case - variaveis e funcoes
+// inicio minuscula e proxima palavra maiuscula
+
+let textStyle = "#000000"; 
+var userName = "Name";
+
+// Snake Case 
+// todas as letras minusculas e espaco com _
+
+let my_time = 90;
+var my_money = .42;
+
+// kebab case
+// guarda-chuva , quero-quero
+// Não pode ser usada no javaScript
+
+// PascalCase
+// Similar CamelCase, porem iniciando com maiuscula - Utilizado como padrão no .NET
+
+let MultipleChoices = 7;
+var MyHero = "Foo Fighters";
