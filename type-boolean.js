@@ -8,15 +8,15 @@ const text2 = "a";
 
 console.log(text1 === text2);
 
+const contaPaga = false;
+const usuarioLogado = true;
 
-// fora escopo - variaveis let e var
+// Truthy or Falsy - valores que se comportam como true ou false
 
-let b = 1;
-b += 3;
+// 0 == false
+// 1 == true
 
-console.log(b);
+console.log(0 == false);
+console.log("" == false);
 
-var x = 12;
-x += b;
-
-console.log(x);
+console.log(1 == true);
