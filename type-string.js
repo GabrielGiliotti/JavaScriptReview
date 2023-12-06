@@ -13,15 +13,6 @@ console.log(citacao2);
 
 console.log(text1 + " " + text2);
 
-// template string ou template literal
-
-const a = 2;
-const b = 3;
-
-const literal = `a soma de a + b é ${a + b}`;
-
-console.log(literal);
-
 // utilizacao UTF (Unicode Transformation Format)
 
 // java script usa por padrao UTF-16
@@ -69,3 +60,20 @@ var my_money = .42;
 
 let MultipleChoices = 7;
 var MyHero = "Foo Fighters";
+
+// template string ou template literal
+
+const a = 2;
+const b = 3;
+
+const literal = `a soma de a + b é ${a + b}`;
+
+console.log(literal);
+
+const client = "John";
+const clientAge = 21;
+const beer = "beer";
+const juice = "juice";
+const output = `${client} said: "Please, give me some ${clientAge >= 18 ? beer : juice}"`;
+
+console.log(output);
