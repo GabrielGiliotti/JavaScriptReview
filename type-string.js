@@ -77,3 +77,44 @@ const juice = "juice";
 const output = `${client} said: "Please, give me some ${clientAge >= 18 ? beer : juice}"`;
 
 console.log(output);
+
+// algumas funcoes nativas uteis
+
+// length
+const string1 = "My String String";
+console.log(string1.length);
+
+// charAt
+console.log(string1.charAt(7));
+
+// indexOf - retorna a primeira ocorrencia
+console.log(string1.indexOf("S"));
+
+// toUpperCase e toLowerCase
+console.log(string1.toUpperCase());
+console.log(string1.toLowerCase());
+
+// substring - end nao é incluido no resultado - sempre colocar um indice para frente 
+console.log(string1.substring(10, 13));
+
+// slice - mais utilizada em arrays
+//         end nao é incluido no resultado - sempre colocar um indice para frente 
+console.log(string1.slice(0,9));
+
+// replace - substitui a primeira ocorrencia apenas
+console.log(string1.replace("String", "hero"));
+
+// concat
+console.log(string1.replace("String ", "").concat(" concat"));
+
+// split
+const string2 = "NodeJs;.Net Core;Angular;ReactJs;C#;Docker;Git"
+console.log(string2.split(";"));
+
+// trim
+const string3 = "  My Hero - Foo Fighters  ";
+console.log(string3.trim());
+
+// variacoes de trim
+console.log(string3.trimEnd());
+console.log(string3.trimStart());
