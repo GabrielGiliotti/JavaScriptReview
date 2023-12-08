@@ -204,3 +204,39 @@ const upadatedNames = names.map(name => {
 });
 
 console.log(upadatedNames);
+
+const salaJS2 = [7, 8, 8, 7, 10, 6.5, 4, 10, 7];
+const salaJava2 = [6, 5, 8, 9, 5, 6];
+const salaPython2 = [7, 3.5, 8, 9.5];
+
+const somaSalaJS2 = salaJS2.reduce((acc, nota) => acc += nota, 0);
+const somaSalaJava2 = salaJava2.reduce((acc, nota) => acc += nota, 0);
+const somaSalaPython2 = salaPython2.reduce((acc, nota) => acc += nota, 0);
+
+console.log(somaSalaJS2/salaJS2.length);
+console.log(somaSalaJava2/salaJava2.length);
+console.log(somaSalaPython2/salaPython2.length);
+
+// reatribuir arrays faz com que um push no segundo array tbm ocorra no primeiro
+// ou seja, a variavel recebe a mesma referencia na memoria
+// Utilizamos entao o spread operator (...)
+
+const notas4 = [7, 7, 8, 9];
+const notasAtualizado = [...notas4];
+
+notasAtualizado.push(5);
+
+console.log(`Array de notas original: ${notas4}`);
+console.log(`Novo array de notas atualizado: ${notasAtualizado}`);
+
+// com tipos primitivos ocorre atribuicao por valor
+// com arrays ocorre atribuicao por referencia
+
+function alteraArray(array, item) {
+    array.push(item);
+    return array;
+}
+
+const teste = alteraArray([...notasAtualizado], 8);
+console.log(notasAtualizado)
+console.log(teste);
