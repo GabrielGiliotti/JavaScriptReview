@@ -161,3 +161,46 @@ console.log(m);
 for(let element of notas1) {
     console.log(element);
 }
+
+// forEach
+notas2.forEach(function (nota, indice) {
+    console.log(nota, indice);
+})
+
+
+// forEach --> Apenas para arrays
+// for of  --> para iteraveis, permite uso de break
+// for     --> quando houver necessidade de alterar as condicoes e passos de iterecao
+
+const names = ["ana Julia", "Caio vinicius", "BIA silva", "barbara"]
+
+const upadatedNames = names.map(name => {
+    name = name.toLowerCase();
+
+    let returnedName;
+    let returnedLastName;
+
+    if(name.includes(" ")) 
+    {
+        let nome_sobrenome = name.split(" ");
+        let nome = nome_sobrenome[0];
+        let sobrenome = nome_sobrenome[1];
+
+        let toReplace1 = nome.charAt(0).toUpperCase();
+        let toReplace2 = sobrenome.charAt(0).toUpperCase();
+
+        returnedName = toReplace1 + nome.slice(1);
+        returnedLastName = toReplace2 + sobrenome.slice(1);
+
+        return `${returnedName} ${returnedLastName}`;
+    }
+    else 
+    {
+        let toReplace1 = name.charAt(0).toUpperCase();
+        returnedName = toReplace1 + name.slice(1);
+
+        return `${returnedName}`;
+    }
+});
+
+console.log(upadatedNames);
