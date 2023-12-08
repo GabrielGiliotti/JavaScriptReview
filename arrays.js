@@ -78,3 +78,46 @@ months.splice(4, 0, 'May');
 // Insert element at index 4
 console.log(months);
 // output: Array ["Jan", "Feb", "March", "April", "May"]
+
+
+const array8 = [0,1,2,3,4,5,6,7,8,9];
+
+const half1 = array8.slice(0, array8.length/2);
+const half2 = array8.slice(array8.length/2);
+
+console.log(half1, half2);
+
+const alunos = ["Joao", "Ana", "Caio", "Lara", "Marjorie", "Leo"];
+
+// remover Ana e Caio e inserir Rodrigo
+
+// alunos.push("Rodrigo") 
+alunos.splice(1,2, "Rodrigo");
+
+console.log(alunos);
+
+const salaJS = ["Clara", "Isabela", "Gabi"]
+const salaPython = ["Bruna", "Manu", "Julia"]
+
+const salasUnificadas = salaJS.concat(salaPython);
+console.log(salasUnificadas);
+
+// Um pouco mais avancado
+const alunos2 = ["Carlos", "Larissa", "Daniela"];
+const medias2 = [8.8, 7.5, 9.6];
+
+const alunosMedias = alunos2.map(function (a,i) {
+    return {nome: a, media: medias2[i]};
+});
+
+alunosMedias.forEach(a => console.log(a.nome, a.media))
+
+// matriz
+const nomes = ["Ana", "Juliana", "Leonardo"];
+const idades = [30, 35, 28];
+const faculdade = [false, true, true];
+
+const funcionarios = [nomes, idades, faculdade];
+
+console.log(`aluno: ${funcionarios[0][0]}, idade: ${funcionarios[1][0]}, fazendo faculdade: ${funcionarios[2][0] ? "Sim" : "Não"}`)
+console.log(`aluno: ${funcionarios[0][2]}, idade: ${funcionarios[1][2]}, fazendo faculdade: ${funcionarios[2][2] ? "Sim" : "Não"}`)
