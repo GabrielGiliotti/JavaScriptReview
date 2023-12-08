@@ -102,6 +102,8 @@ const salaPython = ["Bruna", "Manu", "Julia"]
 const salasUnificadas = salaJS.concat(salaPython);
 console.log(salasUnificadas);
 
+
+// ########################################################
 // Um pouco mais avancado
 const alunos2 = ["Carlos", "Larissa", "Daniela"];
 const medias2 = [8.8, 7.5, 9.6];
@@ -111,6 +113,7 @@ const alunosMedias = alunos2.map(function (a,i) {
 });
 
 alunosMedias.forEach(a => console.log(a.nome, a.media))
+// ########################################################
 
 // matriz
 const nomes = ["Ana", "Juliana", "Leonardo"];
@@ -121,3 +124,40 @@ const funcionarios = [nomes, idades, faculdade];
 
 console.log(`aluno: ${funcionarios[0][0]}, idade: ${funcionarios[1][0]}, fazendo faculdade: ${funcionarios[2][0] ? "Sim" : "Não"}`)
 console.log(`aluno: ${funcionarios[0][2]}, idade: ${funcionarios[1][2]}, fazendo faculdade: ${funcionarios[2][2] ? "Sim" : "Não"}`)
+
+let aluno = alunosMedias.find(x => x.nome == "Larissa");
+
+if(aluno != undefined)
+    console.log(aluno.media);
+
+// ########################################################
+
+// Desestruturacao de listas
+const [nomesList, idadesList, faculdadeList] = funcionarios;
+console.log(nomesList);
+console.log(idadesList);
+console.log(faculdadeList);
+
+// ########################################################
+
+
+const notas1 = [9,8,7,6];
+const notas2 = [5,4,5]
+const notas3 = [4,3]
+
+const notas = [notas1, notas2, notas3];
+
+let m = 0;
+
+for(let i = 0; i < notas.length; i++) {
+    for(let j = 0; j < notas[i].length; j++) {
+        m += (notas[i][j]/notas[i].length)/notas.length;
+    }
+}
+
+console.log(m);
+
+// for of
+for(let element of notas1) {
+    console.log(element);
+}
