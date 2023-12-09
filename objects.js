@@ -50,3 +50,39 @@ const deletedProp3 = delete person3.age; // retorna true
 
 console.log(deletedProp1, deletedProp2, deletedProp3);
 console.log(person3);
+
+const client = {
+    name: "Jack",
+    age: 31,
+    email: "jack@hotmail.com",
+    phones: ["+5519912345678", "+5519987654321"]
+}
+
+console.log(client.phones);
+
+// podemos aninhar objetos 
+
+client.addresses = [{
+    place: "Av Joseph Climber, 167",
+    city: "Araras",
+    state: "São Paulo",
+    zipCode: "13900-000",
+    country: "Brasil"    
+}]
+
+console.log(client);
+console.log(client.addresses[0].city);
+console.log(client["addresses"][0]["state"]);
+
+client.addresses.push({
+    place: "Av Joseph Ladder, 171",
+    city: "Ouro Branco",
+    state: "Minas Gerais",
+    zipCode: "13910-000",
+    country: "Brasil"
+});
+
+console.log(client.addresses.filter(x => x.state == "Minas Gerais"));
+
+
+
