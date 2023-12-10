@@ -114,3 +114,94 @@ console.log(client2.name);
 
 // para a novar versao do node, objetos iguais nao sao printados duas vezes
 // para verificar o objeto copia devemos acessar campo a campo
+
+const client3 = {
+    name: "Joe",
+    age: 30,
+    email: "joe@hotmail.com",
+    phones: ["+5519912345678", "+5519987654321"],
+    balance: 500,
+    paymentFunc: function (value) {
+        if(value > this.balance) {
+            console.log("Insufficiente founds !");
+        } 
+        else {
+            this.balance -= value;
+            console.log(`Payment made. New balance: ${this.balance}`); 
+        }
+    }
+}
+
+client3.addresses = [{
+    place: "Av Joseph Washington, 190",
+    city: "Rio Claro",
+    state: "São Paulo",
+    zipCode: "13900-000",
+    country: "Brasil"    
+}]
+
+for (let key in client3) 
+{
+    let type = typeof client3[key];
+
+    if(type !== 'object' && type !== 'function')
+        console.log(client3[key]);
+}
+
+
+const objectKeys = Object.keys(client3);
+const objectValues = Object.values(client3);
+
+if(!objectKeys.includes("addresses")) {
+    console.error("É necessario ter um endereco cadastrado");
+}
+
+const client4 = {
+    name: "Satoru",
+    age: 32,
+    email: "satoru@hotmail.com",
+    phones: ["+5519912345678", "+5519987654321"],
+    balance: 500,
+    addresses: [{
+        place: "Av Luiz Washington, 200",
+        city: "Rio Pardo",
+        state: "São Paulo",
+        zipCode: "13900-000",
+        country: "Brasil"    
+    }]
+}
+
+const callClient = (n1, n2) => {
+    console.log(`Try 1: Calling to ${n1}`);
+    console.log(`Try 2: Calling to ${n2}`);
+}
+
+// podemos utilizar o spread operator para passar valores de um array como parametro
+callClient(...client4.phones);
+
+// podemos utilizar o spread operator tambem para copiar campos de um objeto para outro
+const order = {
+    recipient: client4.name,
+    ...client4.addresses[0]
+}
+
+console.log(order);
+
+// caso o spread operator seja usada em objetos que tenham chaves/propriedades com o mesmo nome, o 
+// JavaScript vai sobrescrever o valor destas propriedades à medida que encontra novos valores com o 
+// mesmo nome de chave
+
+// pegando atribuindo parte de um array para uma variavel generica com spread operator
+const [num1, num2, ...valores] = [1, 2, 3, 4, 5];
+
+console.log(num1, num2, valores);
+
+// podemos atribuir campos de um objeto a atributos quando esses aparesentam o mesmo nome/chave
+
+const { name, age } = client4;
+console.log(name, age); // printa o valor de name dentro do objeto client4
+
+// podemos tbm utilizar essa estrutura em funcoes
+
+const logg = ({ name, age }) => console.log(name, age);
+logg(client4);
