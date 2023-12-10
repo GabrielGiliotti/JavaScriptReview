@@ -55,7 +55,17 @@ const client = {
     name: "Jack",
     age: 31,
     email: "jack@hotmail.com",
-    phones: ["+5519912345678", "+5519987654321"]
+    phones: ["+5519912345678", "+5519987654321"],
+    balance: 200,
+    paymentFunc: function (value) {
+        if(value > this.balance) {
+            console.log("Insufficiente founds !");
+        } 
+        else {
+            this.balance -= value;
+            console.log(`Payment made. New balance: ${this.balance}`); 
+        }
+    }
 }
 
 console.log(client.phones);
@@ -84,5 +94,23 @@ client.addresses.push({
 
 console.log(client.addresses.filter(x => x.state == "Minas Gerais"));
 
+client.paymentFunc(250);
+client.paymentFunc(110);
 
+// objeto literal - chave valor dentro de {}
+// realizar uma atribuicao a um objeto literal cria apenas uma nova referencia a 
+// uma mesma posicao de memoria
 
+// Podemos utilizar Object.create() para criar um objeto diferente (outra posicao de memoria)
+// a partir de um objeto ja cria
+
+const client2 = Object.create(client);
+
+client2.name = "Jack Sparrow";
+client2.paymentFunc(20);
+
+console.log(client.name);
+console.log(client2.name);
+
+// para a novar versao do node, objetos iguais nao sao printados duas vezes
+// para verificar o objeto copia devemos acessar campo a campo
