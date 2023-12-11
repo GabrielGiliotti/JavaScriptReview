@@ -197,6 +197,7 @@ const [num1, num2, ...valores] = [1, 2, 3, 4, 5];
 console.log(num1, num2, valores);
 
 // podemos atribuir campos de um objeto a atributos quando esses aparesentam o mesmo nome/chave
+// Destructuring !!!
 
 const { name, age } = client4;
 console.log(name, age); // printa o valor de name dentro do objeto client4
