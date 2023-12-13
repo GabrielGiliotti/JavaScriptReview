@@ -13,3 +13,10 @@ function insertionSort(arr) {
 }
 
 console.log(insertionSort(livros));
+
+// complexidade
+// melhor caso: O(n) --> O array ja esta ordenado - nao entra no while para fazer o swap
+// caso medio: O(n^2) --> Alguns itens fora de ordem - ordena os itens e realiza o swap
+// pior caso: O(n^2) --> Array na ordem reversa - necessita ordenar todos os itens
+
+// Aqui se uma certa quantidade de itens ja esta ordenada afeta o desempenho
