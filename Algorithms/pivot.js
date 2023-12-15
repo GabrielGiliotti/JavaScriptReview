@@ -41,3 +41,5 @@ function pivotDivide(arr) {
 }
 
 console.log(pivotDivide(listaLivros));
+
+module.exports = troca;
