@@ -1,8 +1,8 @@
 const listaLivros = require("./livros");
-const troca = require("./pivot");
+const replace = require("./pivot");
 
 
-function particiona(arr, left, right) {
+function partition(arr, left, right) {
     let pivot = arr[Math.floor((left + right)/2)];
     let atualLeft = left;
     let atualRight = right;
@@ -17,7 +17,7 @@ function particiona(arr, left, right) {
         }
 
         if(atualLeft <= atualRight) {
-            troca(arr, atualLeft, atualRight);
+            replace(arr, atualLeft, atualRight);
             atualLeft++;
             atualRight--;
         }
@@ -27,11 +27,11 @@ function particiona(arr, left, right) {
 }
 
 function quickSort(arr, left, right) {
-    console.log("Array: ", arr);
-    console.log("Left, Right: ", left, right);
+    //console.log("Array: ", arr);
+    //console.log("Left, Right: ", left, right);
 
     if(arr.length > 1) {
-        let atualIndex = particiona(arr, left, right);
+        let atualIndex = partition(arr, left, right);
 
         if(left < atualIndex-1) {
             quickSort(arr, left, atualIndex-1);
@@ -45,4 +45,6 @@ function quickSort(arr, left, right) {
     return arr;
 }
 
-console.log(quickSort(listaLivros, 0, listaLivros.length-1));
+//console.log(quickSort(listaLivros, 0, listaLivros.length-1));
+
+module.exports = quickSort;

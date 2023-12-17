@@ -1,6 +1,6 @@
 const listaLivros = require("./livros");
 
-function encontraMenores(arr, pivot) {
+function findMinors(arr, pivot) {
     let menores = 0;
 
     for(let atual = 0; atual < arr.length; atual++) {
@@ -10,12 +10,12 @@ function encontraMenores(arr, pivot) {
             menores++;
         }
     }
-    troca(arr, arr.indexOf(pivot), menores);
+    replace(arr, arr.indexOf(pivot), menores);
 
     return arr;
 }
 
-function troca(arr, from, to) {
+function replace(arr, from, to) {
     const elem1 = arr[from];
     const elem2 = arr[to];
 
@@ -25,14 +25,14 @@ function troca(arr, from, to) {
 
 function pivotDivide(arr) {
     let pivot = arr[Math.floor(arr.length/2)];
-    encontraMenores(arr, pivot);
+    findMinors(arr, pivot);
     let valoresMenores = 0;
 
     for(let analisando = 0; analisando < arr.length; analisando++) {
         let atual = arr[analisando];
 
         if(atual.preco <= pivot.preco && atual !== pivot) {
-            troca(arr, analisando, valoresMenores);
+            replace(arr, analisando, valoresMenores);
             valoresMenores++;
         }
     }
@@ -40,6 +40,6 @@ function pivotDivide(arr) {
     return arr;
 }
 
-console.log(pivotDivide(listaLivros));
+//console.log(pivotDivide(listaLivros));
 
-module.exports = troca;
+module.exports = replace;
