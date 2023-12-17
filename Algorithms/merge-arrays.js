@@ -2,37 +2,37 @@ const { edAbril, edMaio } = require("./publishers")
 
 function mergeArrays(l1, l2) {
     let finalList = [];
-    let atual = 0;
-    let posAtualL1 = 0;
-    let posAtualL2 = 0;
+    let current = 0;
+    let currentPosL1 = 0;
+    let currentPosL2 = 0;
 
-    while(posAtualL1 < l1.length && posAtualL2 < l2.length) {
-        let itemAtualL1 = l1[posAtualL1];
-        let itemAtualL2 = l2[posAtualL2];
+    while(currentPosL1 < l1.length && currentPosL2 < l2.length) {
+        let currentItemL1 = l1[currentPosL1];
+        let currentItemL2 = l2[currentPosL2];
 
-        if(itemAtualL1.preco < itemAtualL2.preco) {
-            finalList[atual] = itemAtualL1;
-            posAtualL1++;
+        if(currentItemL1.preco < currentItemL2.preco) {
+            finalList[current] = currentItemL1;
+            currentPosL1++;
         }
         else 
         {
-            finalList[atual] = itemAtualL2;
-            posAtualL2++;
+            finalList[current] = currentItemL2;
+            currentPosL2++;
         }
         
-        atual++;
+        current++;
     }
 
-    while(posAtualL1 < l1.length) {
-        finalList[atual] = l1[posAtualL1];
-        posAtualL1++;
-        atual++;
+    while(currentPosL1 < l1.length) {
+        finalList[current] = l1[currentPosL1];
+        currentPosL1++;
+        current++;
     }
 
-    while(posAtualL2 < l2.length) {
-        finalList[atual] = l2[posAtualL2];
-        posAtualL2++;
-        atual++;
+    while(currentPosL2 < l2.length) {
+        finalList[current] = l2[currentPosL2];
+        currentPosL2++;
+        current++;
     }
 
     return finalList;

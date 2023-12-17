@@ -1,13 +1,13 @@
-const livros = require("./livros");
+const books = require("./books");
 const lowerValue = require("./cheaper");
 const swap = require("./swap");
 
-for(let atual = 0; atual < livros.length-1; atual++) {
-    let menor = lowerValue(livros, atual);
-    swap(livros, menor);
+for(let current = 0; current < books.length-1; current++) {
+    let smaller = lowerValue(books, current);
+    swap(books, smaller);
 }
 
-console.log(livros);
+console.log(books);
 
 // complexidade
 // melhor caso: O(n^2) --> Array ja ordenado - percorre todos os dados ja ordenados e verifica a condicao

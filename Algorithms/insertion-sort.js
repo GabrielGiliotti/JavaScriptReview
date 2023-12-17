@@ -1,9 +1,9 @@
-const livros = require("./livros");
+const books = require("./books");
 const swap = require("./swap");
 
 function insertionSort(arr) {
-    for(let atual = 0; atual < arr.length; atual++) {
-        let analise = atual;
+    for(let current = 0; current < arr.length; current++) {
+        let analise = current;
         while(analise > 0 && arr[analise].preco < arr[analise-1].preco) {
             swap(arr, analise);
             analise--;
@@ -12,7 +12,7 @@ function insertionSort(arr) {
     return arr;
 }
 
-console.log(insertionSort(livros));
+console.log(insertionSort(books));
 
 // complexidade
 // melhor caso: O(n) --> O array ja esta ordenado - nao entra no while para fazer o swap

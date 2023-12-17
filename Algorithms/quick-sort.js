@@ -1,29 +1,29 @@
-const listaLivros = require("./livros");
+const bookList = require("./books");
 const replace = require("./pivot");
 
 
 function partition(arr, left, right) {
     let pivot = arr[Math.floor((left + right)/2)];
-    let atualLeft = left;
-    let atualRight = right;
+    let currentLeft = left;
+    let currentRight = right;
 
-    while(atualLeft <= atualRight) {
-        while(arr[atualLeft].preco < pivot.preco) {
-            atualLeft++;
+    while(currentLeft <= currentRight) {
+        while(arr[currentLeft].preco < pivot.preco) {
+            currentLeft++;
         }
 
-        while(arr[atualRight].preco > pivot.preco){
-            atualRight--;
+        while(arr[currentRight].preco > pivot.preco){
+            currentRight--;
         }
 
-        if(atualLeft <= atualRight) {
-            replace(arr, atualLeft, atualRight);
-            atualLeft++;
-            atualRight--;
+        if(currentLeft <= currentRight) {
+            replace(arr, currentLeft, currentRight);
+            currentLeft++;
+            currentRight--;
         }
     }
 
-    return atualLeft;
+    return currentLeft;
 }
 
 function quickSort(arr, left, right) {
@@ -45,6 +45,6 @@ function quickSort(arr, left, right) {
     return arr;
 }
 
-//console.log(quickSort(listaLivros, 0, listaLivros.length-1));
+console.log(quickSort(bookList, 0, bookList.length-1));
 
 module.exports = quickSort;

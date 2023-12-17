@@ -1,18 +1,20 @@
-//const livros = require("./livros");
+const books = require("./books");
+
+let cheaper = lowerValue(books, 0);
 
 function lowerValue (arr, ini) {
 
-    let maisBarato = ini;
+    let cheaper = ini;
 
-    for(let atual = ini; atual < arr.length; atual++) {
-        if(arr[atual].preco < arr[maisBarato].preco) {
-            maisBarato = atual;
+    for(let current = ini; current < arr.length; current++) {
+        if(arr[current].preco < arr[cheaper].preco) {
+            cheaper = current;
         } 
     }
 
-    return maisBarato;
+    return cheaper;
 } 
 
-module.exports = lowerValue;
+console.log(`O livro mais barato é ${books[cheaper].titulo} e seu preco é ${books[cheaper].preco}`);
 
-//console.log(`O livro mais barato é ${livros[maisBarato].titulo} e seu preco é ${livros[maisBarato].preco}`);
+module.exports = lowerValue;

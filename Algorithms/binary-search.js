@@ -1,4 +1,4 @@
-const listaLivros = require("./livros");
+const listaLivros = require("./books");
 const quickSort = require("./quick-sort");
 
 const sortedList = quickSort(listaLivros, 0, listaLivros.length-1);

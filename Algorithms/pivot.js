@@ -1,4 +1,4 @@
-const listaLivros = require("./livros");
+const bookList = require("./books");
 
 function findMinors(arr, pivot) {
     let menores = 0;
@@ -40,6 +40,6 @@ function pivotDivide(arr) {
     return arr;
 }
 
-//console.log(pivotDivide(listaLivros));
+console.log(pivotDivide(bookList));
 
 module.exports = replace;

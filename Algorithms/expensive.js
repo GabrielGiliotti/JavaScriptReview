@@ -1,11 +1,11 @@
-const livros = require("./livros");
+const books = require("./books");
 
-let maisCaro = 0;
+let expensive = 0;
 
-for (let atual = 0; atual < livros.length; atual++) {
-    if (livros[atual].preco > livros[maisCaro].preco) {
-        maisCaro = atual;
+for (let current = 0; current < books.length; current++) {
+    if (books[current].preco > books[expensive].preco) {
+        expensive = current;
     }
 }
 
-console.log(`O livro mais caro é ${livros[maisCaro].titulo} e seu preco é ${livros[maisCaro].preco}`);
+console.log(`O livro mais caro é ${books[expensive].titulo} e seu preco é ${books[expensive].preco}`);

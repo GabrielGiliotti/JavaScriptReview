@@ -1,6 +1,6 @@
-const listaLivros = require("./livros");
+const bookList = require("./books");
 
-function ordena(l1, l2) {
+function sort(l1, l2) {
     let finalList = [];
     let posAtualL1 = 0;
     let posAtualL2 = 0;
@@ -32,10 +32,10 @@ function mergeSort(arr, nivel = 0) {
         const half = Math.floor(arr.length / 2);
         const half1 = mergeSort(arr.slice(0, half), nivel+1);
         const half2 = mergeSort(arr.slice(half, arr.length), nivel+1);
-        arr = ordena(half1, half2);
+        arr = sort(half1, half2);
     }
 
     return arr;
 }
 
-console.log(mergeSort(listaLivros));
+console.log(mergeSort(bookList));
