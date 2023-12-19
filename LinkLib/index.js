@@ -37,6 +37,17 @@
 //     });
 // }
 
+// Funcao async com Promises
+// function returnFile(path) {
+//   const encoding = 'utf-8';
+    
+//   fs.promises.readFile(path, encoding)
+//   .then((text) => {
+//       console.log(chalk.green(text));
+//   })
+//   .catch(exceptionHandler);
+// }
+
 import fs from 'fs';
 import chalk from 'chalk';  // equivalente a const chalk = require('chalk');
 
@@ -44,33 +55,40 @@ function exceptionHandler(error) {
     throw new Error(chalk.red(error.code, 'Error trying to access specified file.'));
 }
 
-function returnFile(path) {
-    const encoding = 'utf-8';
+async function returnFile(path) {
+    try {
+      const encoding = 'utf-8';
     
-    fs.promises.readFile(path, encoding)
-    .then((text) => {
-        console.log(chalk.green(text));
-    })
-    .catch(exceptionHandler);
+      const text = await fs.promises.readFile(path, encoding);
+      console.log(chalk.green(text));
+    }
+    catch (error) {
+      exceptionHandler(error);
+    }
+    finally {
+      console.log(chalk.yellow('operação concluída'));
+  }
 }
 
 // relative path
 returnFile('./files/texto.md');
+returnFile('./files/');
 
-function promessa(bool) {
-    const x = bool;
-    return new Promise((resolve, reject) => {
-      if (!x) {
-        reject(new Error("falha na promessa"));
-      }
-      resolve("sucesso na promessa");
-    });
-   }
+
+// function promessa(bool) {
+//     const x = bool;
+//     return new Promise((resolve, reject) => {
+//       if (!x) {
+//         reject(new Error("falha na promessa"));
+//       }
+//       resolve("sucesso na promessa");
+//     });
+//    }
    
-   function exibeResposta(textoResult) {
-    console.log(textoResult);
-   }
+//    function exibeResposta(textoResult) {
+//     console.log(textoResult);
+//    }
    
-   promessa(true)
-    .then((texto) => exibeResposta(texto))
-   // sucesso na promessa
+//    promessa(true)
+//     .then((texto) => exibeResposta(texto))
+//    // sucesso na promessa
