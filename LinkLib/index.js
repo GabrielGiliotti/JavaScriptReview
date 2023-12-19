@@ -48,33 +48,6 @@
 //   .catch(exceptionHandler);
 // }
 
-import fs from 'fs';
-import chalk from 'chalk';  // equivalente a const chalk = require('chalk');
-
-function exceptionHandler(error) {
-    throw new Error(chalk.red(error.code, 'Error trying to access specified file.'));
-}
-
-async function returnFile(path) {
-    try {
-      const encoding = 'utf-8';
-    
-      const text = await fs.promises.readFile(path, encoding);
-      console.log(chalk.green(text));
-    }
-    catch (error) {
-      exceptionHandler(error);
-    }
-    finally {
-      console.log(chalk.yellow('operação concluída'));
-  }
-}
-
-// relative path
-returnFile('./files/texto.md');
-returnFile('./files/');
-
-
 // function promessa(bool) {
 //     const x = bool;
 //     return new Promise((resolve, reject) => {
@@ -92,3 +65,35 @@ returnFile('./files/');
 //    promessa(true)
 //     .then((texto) => exibeResposta(texto))
 //    // sucesso na promessa
+
+import fs from 'fs';
+import chalk from 'chalk';  // equivalente a const chalk = require('chalk');
+
+function exceptionHandler(error) {
+    throw new Error(chalk.red(error.code, 'Error trying to access specified file.'));
+}
+
+async function returnFile(path) {
+    try {
+      const encoding = 'utf-8';
+    
+      const text = await fs.promises.readFile(path, encoding);
+      return extraiLinks(text);
+    }
+    catch (error) {
+      exceptionHandler(error);
+    }
+    finally {
+      console.log(chalk.yellow('operação concluída'));
+  }
+}
+
+function extraiLinks(texto) {
+  console.log(typeof texto)
+  const regex = /\[([^[\]]*?)\]\((https?:\/\/[^\s?#.].[^\s]*)\)/gm;
+  const capturas = [...texto.matchAll(regex)];
+  const resultados = capturas.map(captura => ({[captura[1]]: captura[2]}))
+  console.log(resultados);
+}
+
+returnFile('./files/texto.md');
