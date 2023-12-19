@@ -24,6 +24,19 @@
 // DISK: ${chalk.yellow('70%')}
 // `);
 
+
+// Funcao sincrona
+// function returnFile(path) {
+//     const encoding = 'utf-8';
+//     fs.readFile(path, encoding, (error, text) => {
+        
+//         if(error) 
+//             exceptionHandler(error);
+
+//         console.log(chalk.green(text));
+//     });
+// }
+
 import fs from 'fs';
 import chalk from 'chalk';  // equivalente a const chalk = require('chalk');
 
@@ -33,14 +46,31 @@ function exceptionHandler(error) {
 
 function returnFile(path) {
     const encoding = 'utf-8';
-    fs.readFile(path, encoding, (error, text) => {
-        
-        if(error) 
-            exceptionHandler(error);
-
+    
+    fs.promises.readFile(path, encoding)
+    .then((text) => {
         console.log(chalk.green(text));
-    });
+    })
+    .catch(exceptionHandler);
 }
 
 // relative path
 returnFile('./files/texto.md');
+
+function promessa(bool) {
+    const x = bool;
+    return new Promise((resolve, reject) => {
+      if (!x) {
+        reject(new Error("falha na promessa"));
+      }
+      resolve("sucesso na promessa");
+    });
+   }
+   
+   function exibeResposta(textoResult) {
+    console.log(textoResult);
+   }
+   
+   promessa(true)
+    .then((texto) => exibeResposta(texto))
+   // sucesso na promessa
