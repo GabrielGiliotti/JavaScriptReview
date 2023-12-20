@@ -73,12 +73,12 @@ function exceptionHandler(error) {
     throw new Error(chalk.red(error.code, 'Error trying to access specified file.'));
 }
 
-async function returnFile(path) {
+async function getFile(path) {
     try {
       const encoding = 'utf-8';
     
       const text = await fs.promises.readFile(path, encoding);
-      return extraiLinks(text);
+      return extractLinks(text);
     }
     catch (error) {
       exceptionHandler(error);
@@ -88,12 +88,11 @@ async function returnFile(path) {
   }
 }
 
-function extraiLinks(texto) {
-  console.log(typeof texto)
+function extractLinks(texto) {
   const regex = /\[([^[\]]*?)\]\((https?:\/\/[^\s?#.].[^\s]*)\)/gm;
   const capturas = [...texto.matchAll(regex)];
   const resultados = capturas.map(captura => ({[captura[1]]: captura[2]}))
-  console.log(resultados);
+  return resultados.length !== 0 ? resultados : "There are no links in the file" ;
 }
 
-returnFile('./files/texto.md');
+export default getFile;
