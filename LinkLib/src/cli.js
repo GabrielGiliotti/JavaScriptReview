@@ -5,12 +5,12 @@ import validatedList from './http-validation.js';
 
 const args = process.argv;
 
-function printResult(valid, result, identifier = '') {
+async function printResult(valid, result, identifier = '') {
 
     if(valid) {
         console.log(chalk.yellow('Valid links list:'), 
         chalk.black.bgGreen(identifier),
-        validatedList(result));
+        await validatedList(result));
     } else {
         console.log(chalk.yellow('Links list:'), 
         chalk.black.bgGreen(identifier),
@@ -43,13 +43,13 @@ async function processText(args) {
 
     if(fs.lstatSync(path).isFile()) {
         const result = await getFile(path);
-        printResult(valid, result);
+        await printResult(valid, result);
     }
     else if (fs.lstatSync(path).isDirectory()) {
         const files = await fs.promises.readdir(path);
         files.forEach(async (fileName) => {
             const list = await getFile(`${path}/${fileName}`);
-            printResult(valid, list, fileName);
+            await printResult(valid, list, fileName);
         })
     }
 }
