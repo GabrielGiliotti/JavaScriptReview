@@ -55,7 +55,7 @@ const outroUser = {
    
 newUser.exibeInfos();
 
-// Aqui, call substitui o contexto do objeto newUser pelo contexto do objeto outroUuser
+// Aqui, call substitui o contexto do objeto newUser pelo contexto do objeto outroUser
 // E depois chama exibeInfos que esta dentro do objeto instanciado de newUser
 // Ou seja, ocorre a troca de contexto
 newUser.exibeInfos.call(outroUser) 
